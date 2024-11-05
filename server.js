@@ -40,7 +40,9 @@ server.post("/envio-api", async (req, res) => {
     res.status(200).json({ message: "Item salvo com sucesso" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Erro ao salvar o arquivo", details: err.message });
+    res
+      .status(500)
+      .json({ error: "Erro ao salvar o arquivo", details: err.message });
   }
 });
 
