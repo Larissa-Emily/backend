@@ -1,7 +1,7 @@
 const express = require("express");
 const server = express();
 const fs = require("fs").promises; // Usando 'fs.promises' para trabalhar com promessas
-const path = require("path"); 
+const path = require("path");
 const DATA_FILE = path.join(__dirname, "./data.json");
 const cors = require("cors");
 server.use(cors());
@@ -10,6 +10,9 @@ server.use(cors());
 server.use(express.json());
 const port = process.env.PORT || 5000;
 
+server.get("/", (req, res) => {
+  return res.json("Hello word");
+});
 
 server.post("/envio-api", async (req, res) => {
   const { name } = req.body; // Obtendo diretamente o 'name' de req.body
